@@ -9,5 +9,22 @@ echo "SAFETY_MODEL_ID=$SAFETY_MODEL_ID" >> .env
 echo "IS_FP16=$IS_FP16" >> .env
 
 python script/download-weights.py
-cog run python test.py --test_img2img --test_text2img --test_adapter
+# cog run python test.py --test_img2img --test_text2img --test_adapter
 cog push r8.im/$USERNAME/$REPLICATE_MODEL_ID
+
+
+
+StableDiffusionPipeline.from_pretrained(
+            pretrained_model_name_or_path="diffusers-cache",
+            torch_dtype=torch.float16)
+
+
+ sudo cog run python test.py --test_text2img
+
+
+import torch
+from diffusers import StableDiffusionPipeline, DiffusionPipeline
+pipe = DiffusionPipeline.from_pretrained(
+    "diffusers-cache",
+    torch_dtype=torch.float16,
+)
