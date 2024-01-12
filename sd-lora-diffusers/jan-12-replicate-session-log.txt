@@ -1,0 +1,773 @@
+Microsoft Windows [Version 10.0.22621.3007]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\Sandesh>ssh -i ~/.ssh/id_rsa.pem azureuser@20.5.177.146
+Warning: Identity file C:\Users\Sandesh/.ssh/id_rsa.pem not accessible: No such file or directory.
+azureuser@20.5.177.146's password:
+Permission denied, please try again.
+azureuser@20.5.177.146's password:
+Welcome to Ubuntu 20.04.6 LTS (GNU/Linux 5.15.0-1053-azure x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Fri Jan 12 00:59:55 UTC 2024
+
+  System load:  0.23               Processes:                136
+  Usage of /:   31.4% of 61.84GB   Users logged in:          0
+  Memory usage: 4%                 IPv4 address for docker0: 172.17.0.1
+  Swap usage:   0%                 IPv4 address for eth0:    10.0.0.4
+
+
+Expanded Security Maintenance for Applications is not enabled.
+
+14 updates can be applied immediately.
+13 of these updates are standard security updates.
+To see these additional updates run: apt list --upgradable
+
+Enable ESM Apps to receive additional future security updates.
+See https://ubuntu.com/esm or run: sudo pro status
+
+New release '22.04.3 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+
+Last login: Thu Jan 11 02:50:33 2024 from 58.6.228.96
+azureuser@docker-test-vm-2:~$ ls
+replicate-sd-lora
+azureuser@docker-test-vm-2:~$ cd replicate-sd-lora
+azureuser@docker-test-vm-2:~/replicate-sd-lora$ ls
+cog-sdxl-lora  lora-inference  sd-lora-diffusers  test-cog
+azureuser@docker-test-vm-2:~/replicate-sd-lora$ cd sd-lora-diffusers
+azureuser@docker-test-vm-2:~/replicate-sd-lora/sd-lora-diffusers$ ls
+ README.md     cog.yaml           diffusers-cache     'predict copy.py'   script
+ __pycache__   deploy_others.sh  'predict copy 2.py'   predict.py         test.py
+azureuser@docker-test-vm-2:~/replicate-sd-lora/sd-lora-diffusers$ cd diffusers-cache
+azureuser@docker-test-vm-2:~/replicate-sd-lora/sd-lora-diffusers/diffusers-cache$ ls
+feature_extractor  model_index.json  safety_checker  scheduler  text_encoder  tokenizer  unet  vae
+azureuser@docker-test-vm-2:~/replicate-sd-lora/sd-lora-diffusers/diffusers-cache$ cd..
+cd..: command not found
+azureuser@docker-test-vm-2:~/replicate-sd-lora/sd-lora-diffusers/diffusers-cache$ cd ..
+azureuser@docker-test-vm-2:~/replicate-sd-lora/sd-lora-diffusers$  sudo cog run python test.py --test_text2img'
+>
+>
+> xit
+> exit
+> ^C
+azureuser@docker-test-vm-2:~/replicate-sd-lora/sd-lora-diffusers$ ^C
+azureuser@docker-test-vm-2:~/replicate-sd-lora/sd-lora-diffusers$ ^C
+azureuser@docker-test-vm-2:~/replicate-sd-lora/sd-lora-diffusers$ sudo cog run python test.py --test_text2img
+[sudo] password for azureuser:
+Building Docker image from environment in cog.yaml...
+⚠ Cog doesn't know if CUDA 11.4 is compatible with torchvision 0.15.2. This might cause CUDA problems.
+[+] Building 3.6s (18/18) FINISHED                                                                       docker:default
+ => [internal] load build definition from Dockerfile                                                               0.0s
+ => => transferring dockerfile: 2.02kB                                                                             0.0s
+ => [internal] load .dockerignore                                                                                  0.1s
+ => => transferring context: 2B                                                                                    0.0s
+ => resolve image config for docker.io/docker/dockerfile:1.4                                                       1.6s
+ => CACHED docker-image://docker.io/docker/dockerfile:1.4@sha256:9ba7531bd80fb0a858632727cf7a112fbfd19b17e94c4e84  0.0s
+ => [internal] load metadata for docker.io/nvidia/cuda:11.4.3-cudnn8-devel-ubuntu20.04                             1.1s
+ => [stage-0  1/10] FROM docker.io/nvidia/cuda:11.4.3-cudnn8-devel-ubuntu20.04@sha256:6a25ce9a21cf6f9e37bc09022e2  0.0s
+ => [internal] load build context                                                                                  0.0s
+ => => transferring context: 84.13kB                                                                               0.0s
+ => CACHED [stage-0  2/10] RUN --mount=type=cache,target=/var/cache/apt set -eux; apt-get update -qq; apt-get ins  0.0s
+ => CACHED [stage-0  3/10] RUN --mount=type=cache,target=/var/cache/apt apt-get update -qq && apt-get install -qq  0.0s
+ => CACHED [stage-0  4/10] RUN curl -s -S -L https://raw.githubusercontent.com/pyenv/pyenv-installer/master/bin/p  0.0s
+ => CACHED [stage-0  5/10] COPY .cog/tmp/build4290423511/cog-0.0.1.dev-py3-none-any.whl /tmp/cog-0.0.1.dev-py3-no  0.0s
+ => CACHED [stage-0  6/10] RUN --mount=type=cache,target=/root/.cache/pip pip install /tmp/cog-0.0.1.dev-py3-none  0.0s
+ => CACHED [stage-0  7/10] RUN --mount=type=cache,target=/var/cache/apt apt-get update -qq && apt-get install -qq  0.0s
+ => CACHED [stage-0  8/10] COPY .cog/tmp/build4290423511/requirements.txt /tmp/requirements.txt                    0.0s
+ => CACHED [stage-0  9/10] RUN --mount=type=cache,target=/root/.cache/pip pip install -r /tmp/requirements.txt     0.0s
+ => CACHED [stage-0 10/10] WORKDIR /src                                                                            0.0s
+ => preparing layers for inline cache                                                                              0.0s
+ => exporting to image                                                                                             0.0s
+ => => exporting layers                                                                                            0.0s
+ => => writing image sha256:b787bc35644b7aa4aaacf8d74c61805e5fa56e09ef36916aaa38ce6807045be9                       0.0s
+ => => naming to docker.io/library/cog-sd-lora-diffusers-base                                                      0.0s
+
+Running 'python test.py --test_text2img' in Docker with the current directory mounted as a volume...
+docker: Error response from daemon: failed to create task for container: failed to create shim task: OCI runtime create failed: runc create failed: unable to start container process: error during container init: error running hook #0: error running hook: exit status 1, stdout: , stderr: Auto-detected mode as 'legacy'
+nvidia-container-cli: initialization error: load library failed: libnvidia-ml.so.1: cannot open shared object file: no such file or directory: unknown.
+Missing device driver, re-trying without GPU
+The cache for model files in Transformers v4.22.0 has been updated. Migrating your old cache. This is a one-time only operation. You can interrupt this and resume the migration later on by calling `transformers.utils.move_cache()`.
+0it [00:00, ?it/s]
+Loading pipeline...
+Loading pipeline components...:   0%|                                                             | 0/7 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "/src/test.py", line 40, in <module>
+    p.setup()
+  File "/src/predict.py", line 81, in setup
+    self.pipe = StableDiffusionPipeline.from_pretrained(
+  File "/root/.pyenv/versions/3.10.13/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 118, in _inner_fn
+    return fn(*args, **kwargs)
+  File "/root/.pyenv/versions/3.10.13/lib/python3.10/site-packages/diffusers/pipelines/pipeline_utils.py", line 1271, in from_pretrained
+    loaded_sub_model = load_sub_model(
+  File "/root/.pyenv/versions/3.10.13/lib/python3.10/site-packages/diffusers/pipelines/pipeline_utils.py", line 525, in load_sub_model
+    loaded_sub_model = load_method(os.path.join(cached_folder, name), **loading_kwargs)
+  File "/root/.pyenv/versions/3.10.13/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 118, in _inner_fn
+    return fn(*args, **kwargs)
+  File "/root/.pyenv/versions/3.10.13/lib/python3.10/site-packages/diffusers/models/modeling_utils.py", line 777, in from_pretrained
+    model_file = _get_model_file(
+  File "/root/.pyenv/versions/3.10.13/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 118, in _inner_fn
+    return fn(*args, **kwargs)
+  File "/root/.pyenv/versions/3.10.13/lib/python3.10/site-packages/diffusers/utils/hub_utils.py", line 272, in _get_model_file
+    raise EnvironmentError(
+OSError: Error no file named diffusion_pytorch_model.bin found in directory diffusers-cache/unet.
+ⅹ exit status 1
+azureuser@docker-test-vm-2:~/replicate-sd-lora/sd-lora-diffusers$ sudo cog run bash
+Building Docker image from environment in cog.yaml...
+⚠ Cog doesn't know if CUDA 11.4 is compatible with torchvision 0.15.2. This might cause CUDA problems.
+[+] Building 2.3s (18/18) FINISHED                                                                       docker:default
+ => [internal] load build definition from Dockerfile                                                               0.0s
+ => => transferring dockerfile: 2.02kB                                                                             0.0s
+ => [internal] load .dockerignore                                                                                  0.0s
+ => => transferring context: 2B                                                                                    0.0s
+ => resolve image config for docker.io/docker/dockerfile:1.4                                                       1.2s
+ => CACHED docker-image://docker.io/docker/dockerfile:1.4@sha256:9ba7531bd80fb0a858632727cf7a112fbfd19b17e94c4e84  0.0s
+ => [internal] load metadata for docker.io/nvidia/cuda:11.4.3-cudnn8-devel-ubuntu20.04                             0.7s
+ => [stage-0  1/10] FROM docker.io/nvidia/cuda:11.4.3-cudnn8-devel-ubuntu20.04@sha256:6a25ce9a21cf6f9e37bc09022e2  0.0s
+ => [internal] load build context                                                                                  0.0s
+ => => transferring context: 84.13kB                                                                               0.0s
+ => CACHED [stage-0  2/10] RUN --mount=type=cache,target=/var/cache/apt set -eux; apt-get update -qq; apt-get ins  0.0s
+ => CACHED [stage-0  3/10] RUN --mount=type=cache,target=/var/cache/apt apt-get update -qq && apt-get install -qq  0.0s
+ => CACHED [stage-0  4/10] RUN curl -s -S -L https://raw.githubusercontent.com/pyenv/pyenv-installer/master/bin/p  0.0s
+ => CACHED [stage-0  5/10] COPY .cog/tmp/build4231917735/cog-0.0.1.dev-py3-none-any.whl /tmp/cog-0.0.1.dev-py3-no  0.0s
+ => CACHED [stage-0  6/10] RUN --mount=type=cache,target=/root/.cache/pip pip install /tmp/cog-0.0.1.dev-py3-none  0.0s
+ => CACHED [stage-0  7/10] RUN --mount=type=cache,target=/var/cache/apt apt-get update -qq && apt-get install -qq  0.0s
+ => CACHED [stage-0  8/10] COPY .cog/tmp/build4231917735/requirements.txt /tmp/requirements.txt                    0.0s
+ => CACHED [stage-0  9/10] RUN --mount=type=cache,target=/root/.cache/pip pip install -r /tmp/requirements.txt     0.0s
+ => CACHED [stage-0 10/10] WORKDIR /src                                                                            0.0s
+ => preparing layers for inline cache                                                                              0.0s
+ => exporting to image                                                                                             0.0s
+ => => exporting layers                                                                                            0.0s
+ => => writing image sha256:24ce6411fc5eec2c3296dbacfde727f8b1cdd9d3930250153411be474cbfc1c8                       0.0s
+ => => naming to docker.io/library/cog-sd-lora-diffusers-base                                                      0.0s
+
+Running 'bash' in Docker with the current directory mounted as a volume...
+docker: Error response from daemon: failed to create task for container: failed to create shim task: OCI runtime create failed: runc create failed: unable to start container process: error during container init: error running hook #0: error running hook: exit status 1, stdout: , stderr: Auto-detected mode as 'legacy'
+nvidia-container-cli: initialization error: load library failed: libnvidia-ml.so.1: cannot open shared object file: no such file or directory: unknown.
+Missing device driver, re-trying without GPU
+root@d889233965d5:/src# ls
+ README.md     cog.yaml           diffusers-cache     'predict copy.py'   script
+ __pycache__   deploy_others.sh  'predict copy 2.py'   predict.py         test.py
+root@d889233965d5:/src# cd diffusers-cache
+root@d889233965d5:/src/diffusers-cache# ls
+feature_extractor  model_index.json  safety_checker  scheduler  text_encoder  tokenizer  unet  vae
+root@d889233965d5:/src/diffusers-cache# cd unet
+root@d889233965d5:/src/diffusers-cache/unet# ls
+config.json  diffusion_pytorch_model.bin
+root@d889233965d5:/src/diffusers-cache/unet# ls -l diffusion_pytorch_model.bin
+lrwxrwxrwx 1 root root 149 Jan 11 03:09 diffusion_pytorch_model.bin -> ../../../root/.cache/huggingface/hub/models--sandeshrajx--realistic-vision-v13/blobs/2a7b8fee9b54c60a71627f357325ef90ae465595a593832e485ea6c6e24f9f9c
+root@d889233965d5:/src/diffusers-cache/unet# chmod -x diffusion_pytorch_model.bin
+chmod: cannot operate on dangling symlink 'diffusion_pytorch_model.bin'
+root@d889233965d5:/src/diffusers-cache/unet# ls
+config.json  diffusion_pytorch_model.bin
+root@d889233965d5:/src/diffusers-cache/unet# cd ..
+root@d889233965d5:/src/diffusers-cache# ls
+feature_extractor  model_index.json  safety_checker  scheduler  text_encoder  tokenizer  unet  vae
+root@d889233965d5:/src/diffusers-cache# cd text_encoder
+root@d889233965d5:/src/diffusers-cache/text_encoder# ls
+config.json  pytorch_model.bin
+root@d889233965d5:/src/diffusers-cache/text_encoder# cd ..
+root@d889233965d5:/src/diffusers-cache# cd ..
+root@d889233965d5:/src# ls
+ README.md     cog.yaml           diffusers-cache     'predict copy.py'   script
+ __pycache__   deploy_others.sh  'predict copy 2.py'   predict.py         test.py
+root@d889233965d5:/src# python test.py --test_text2img
+The cache for model files in Transformers v4.22.0 has been updated. Migrating your old cache. This is a one-time only operation. You can interrupt this and resume the migration later on by calling `transformers.utils.move_cache()`.
+0it [00:00, ?it/s]
+Loading pipeline...
+Loading pipeline components...:   0%|                                                             | 0/7 [00:00<?, ?it/s]/root/.pyenv/versions/3.10.13/lib/python3.10/site-packages/transformers/models/clip/feature_extraction_clip.py:28: FutureWarning: The class CLIPFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use CLIPImageProcessor instead.
+  warnings.warn(
+Loading pipeline components...:  14%|███████▌                                             | 1/7 [00:00<00:00, 55.25it/s]
+Traceback (most recent call last):
+  File "/src/test.py", line 40, in <module>
+    p.setup()
+  File "/src/predict.py", line 81, in setup
+    self.pipe = StableDiffusionPipeline.from_pretrained(
+  File "/root/.pyenv/versions/3.10.13/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 118, in _inner_fn
+    return fn(*args, **kwargs)
+  File "/root/.pyenv/versions/3.10.13/lib/python3.10/site-packages/diffusers/pipelines/pipeline_utils.py", line 1271, in from_pretrained
+    loaded_sub_model = load_sub_model(
+  File "/root/.pyenv/versions/3.10.13/lib/python3.10/site-packages/diffusers/pipelines/pipeline_utils.py", line 525, in load_sub_model
+    loaded_sub_model = load_method(os.path.join(cached_folder, name), **loading_kwargs)
+  File "/root/.pyenv/versions/3.10.13/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 118, in _inner_fn
+    return fn(*args, **kwargs)
+  File "/root/.pyenv/versions/3.10.13/lib/python3.10/site-packages/diffusers/models/modeling_utils.py", line 777, in from_pretrained
+    model_file = _get_model_file(
+  File "/root/.pyenv/versions/3.10.13/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 118, in _inner_fn
+    return fn(*args, **kwargs)
+  File "/root/.pyenv/versions/3.10.13/lib/python3.10/site-packages/diffusers/utils/hub_utils.py", line 272, in _get_model_file
+    raise EnvironmentError(
+OSError: Error no file named diffusion_pytorch_model.bin found in directory diffusers-cache/unet.
+root@d889233965d5:/src# ls
+ README.md     cog.yaml           diffusers-cache     'predict copy.py'   script
+ __pycache__   deploy_others.sh  'predict copy 2.py'   predict.py         test.py
+root@d889233965d5:/src# exit
+exit
+azureuser@docker-test-vm-2:~/replicate-sd-lora/sd-lora-diffusers$ cog run bash
+Building Docker image from environment in cog.yaml...
+⚠ Cog doesn't know if CUDA 11.4 is compatible with torchvision 0.15.2. This might cause CUDA problems.
+ERROR: permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get "http://%2Fvar%2Frun%2Fdocker.sock/_ping": dial unix /var/run/docker.sock: connect: permission denied
+ⅹ Failed to build Docker image: exit status 1
+azureuser@docker-test-vm-2:~/replicate-sd-lora/sd-lora-diffusers$ sudo cog run bash
+Building Docker image from environment in cog.yaml...
+⚠ Cog doesn't know if CUDA 11.4 is compatible with torchvision 0.15.2. This might cause CUDA problems.
+[+] Building 2.8s (18/18) FINISHED                                                                       docker:default
+ => [internal] load .dockerignore                                                                                  0.0s
+ => => transferring context: 2B                                                                                    0.0s
+ => [internal] load build definition from Dockerfile                                                               0.0s
+ => => transferring dockerfile: 2.02kB                                                                             0.0s
+ => resolve image config for docker.io/docker/dockerfile:1.4                                                       1.5s
+ => CACHED docker-image://docker.io/docker/dockerfile:1.4@sha256:9ba7531bd80fb0a858632727cf7a112fbfd19b17e94c4e84  0.0s
+ => [internal] load metadata for docker.io/nvidia/cuda:11.4.3-cudnn8-devel-ubuntu20.04                             1.0s
+ => [stage-0  1/10] FROM docker.io/nvidia/cuda:11.4.3-cudnn8-devel-ubuntu20.04@sha256:6a25ce9a21cf6f9e37bc09022e2  0.0s
+ => [internal] load build context                                                                                  0.0s
+ => => transferring context: 84.12kB                                                                               0.0s
+ => CACHED [stage-0  2/10] RUN --mount=type=cache,target=/var/cache/apt set -eux; apt-get update -qq; apt-get ins  0.0s
+ => CACHED [stage-0  3/10] RUN --mount=type=cache,target=/var/cache/apt apt-get update -qq && apt-get install -qq  0.0s
+ => CACHED [stage-0  4/10] RUN curl -s -S -L https://raw.githubusercontent.com/pyenv/pyenv-installer/master/bin/p  0.0s
+ => CACHED [stage-0  5/10] COPY .cog/tmp/build180186594/cog-0.0.1.dev-py3-none-any.whl /tmp/cog-0.0.1.dev-py3-non  0.0s
+ => CACHED [stage-0  6/10] RUN --mount=type=cache,target=/root/.cache/pip pip install /tmp/cog-0.0.1.dev-py3-none  0.0s
+ => CACHED [stage-0  7/10] RUN --mount=type=cache,target=/var/cache/apt apt-get update -qq && apt-get install -qq  0.0s
+ => CACHED [stage-0  8/10] COPY .cog/tmp/build180186594/requirements.txt /tmp/requirements.txt                     0.0s
+ => CACHED [stage-0  9/10] RUN --mount=type=cache,target=/root/.cache/pip pip install -r /tmp/requirements.txt     0.0s
+ => CACHED [stage-0 10/10] WORKDIR /src                                                                            0.0s
+ => preparing layers for inline cache                                                                              0.0s
+ => exporting to image                                                                                             0.0s
+ => => exporting layers                                                                                            0.0s
+ => => writing image sha256:892201117bf908336128300740615605f48a88cc24acab52503a58744fbf5220                       0.0s
+ => => naming to docker.io/library/cog-sd-lora-diffusers-base                                                      0.0s
+
+Running 'bash' in Docker with the current directory mounted as a volume...
+docker: Error response from daemon: failed to create task for container: failed to create shim task: OCI runtime create failed: runc create failed: unable to start container process: error during container init: error running hook #0: error running hook: exit status 1, stdout: , stderr: Auto-detected mode as 'legacy'
+nvidia-container-cli: initialization error: load library failed: libnvidia-ml.so.1: cannot open shared object file: no such file or directory: unknown.
+Missing device driver, re-trying without GPU
+root@c1cab004f7f6:/src# ls
+ README.md     cog.yaml           diffusers-cache     'predict copy.py'   script
+ __pycache__   deploy_others.sh  'predict copy 2.py'   predict.py         test.py
+root@c1cab004f7f6:/src# cat cog.yaml
+# Configuration for Cog ⚙️
+# Reference: https://github.com/replicate/cog/blob/main/docs/yaml.md
+
+build:
+  gpu: true
+  cuda: "11.4"
+  python_version: "3.10"
+  system_packages:
+    - "ffmpeg"
+    - "libsm6"
+    - "libxext6"
+  python_packages:
+    - "python-dotenv"
+    - "diffusers==0.25.0"
+    - "torch==2.0.1"
+    - "transformers==4.31.0"
+    - "invisible-watermark==0.2.0"
+    - "accelerate==0.21.0"
+    - "pandas==2.0.3"
+    - "torchvision==0.15.2"
+    - "numpy==1.25.1"
+    - "pandas==2.0.3"
+    - "fire==0.5.0"
+    - "opencv-python>=4.1.0.25"
+    - "mediapipe==0.10.2"
+
+predict: "predict.py:Predictor"
+root@c1cab004f7f6:/src# cat > echo '#!/usr/bin/env python
+> import subprocess
+>
+> def print_file_content(filename):
+>     try:
+>         subprocess.run(["cat", filename], check=True)
+>     except subprocess.CalledProcessError as e:
+>         print(f"Error: Unable to print the content of {filename}.")
+>         print(f"Command returned non-zero exit status {e.returncode}.")
+>
+> filename = "cog.yaml"
+> print_file_content(filename)
+> ' > print.py
+cat: '#!/usr/bin/env python'$'\n''import subprocess'$'\n\n''def print_file_content(filename):'$'\n''    try:'$'\n''        subprocess.run(["cat", filename], check=True)'$'\n''    except subprocess.CalledProcessError as e:'$'\n''        print(f"Error: Unable to print the content of {filename}.")'$'\n''        print(f"Command returned non-zero exit status {e.returncode}.")'$'\n\n''filename = "cog.yaml"'$'\n''print_file_content(filename)'$'\n': No such file or directory
+root@c1cab004f7f6:/src# ls
+ README.md     cog.yaml           diffusers-cache  'predict copy 2.py'   predict.py   script
+ __pycache__   deploy_others.sh   echo             'predict copy.py'     print.py     test.py
+root@c1cab004f7f6:/src# python print.py
+root@c1cab004f7f6:/src# python
+Python 3.10.13 (main, Jan 11 2024, 03:01:51) [GCC 9.4.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import subprocess
+lename], check=True)
+    except subprocess.CalledProcessError as e:
+        print(f"Error: Unable to print the content of {filename}.")
+        print(f"Command returned non-zero exit>>>
+>>> def print_file_content(filename):
+...     try:
+...         subprocess.run(["cat", filename], check=True)
+...     except subprocess.CalledProcessError as e:
+...         print(f"Error: Unable to print the content of {filename}.")
+...         print(f"Command returned non-zero exit status {e.returncode}.")
+...
+>>> filename = "cog.yaml"
+>>> print_file_content(filename)
+# Configuration for Cog ⚙️
+# Reference: https://github.com/replicate/cog/blob/main/docs/yaml.md
+
+build:
+  gpu: true
+  cuda: "11.4"
+  python_version: "3.10"
+  system_packages:
+    - "ffmpeg"
+    - "libsm6"
+    - "libxext6"
+  python_packages:
+    - "python-dotenv"
+    - "diffusers==0.25.0"
+    - "torch==2.0.1"
+    - "transformers==4.31.0"
+    - "invisible-watermark==0.2.0"
+    - "accelerate==0.21.0"
+    - "pandas==2.0.3"
+    - "torchvision==0.15.2"
+    - "numpy==1.25.1"
+    - "pandas==2.0.3"
+    - "fire==0.5.0"
+    - "opencv-python>=4.1.0.25"
+    - "mediapipe==0.10.2"
+
+predict: "predict.py:Predictor"
+>>> print.py
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: 'builtin_function_or_method' object has no attribute 'py'
+>>> exit
+Use exit() or Ctrl-D (i.e. EOF) to exit
+>>>
+root@c1cab004f7f6:/src# ls
+ README.md     cog.yaml           diffusers-cache  'predict copy 2.py'   predict.py   script
+ __pycache__   deploy_others.sh   echo             'predict copy.py'     print.py     test.py
+root@c1cab004f7f6:/src# python print.py
+root@c1cab004f7f6:/src# echo '#!/usr/bin/env python
+> def print_file_content(filename):
+>     try:
+>         with open(filename, "r") as file:
+>             content = file.read()
+>             print(content)
+>     except Exception as e:
+>         print(f"Error: Unable to print the content of {filename}.")
+>         print(f"Error details: {e}")
+>
+> filename = "cog.yaml"
+> print_file_content(filename)
+> ' > print.py
+root@c1cab004f7f6:/src#
+root@c1cab004f7f6:/src# python print.py
+# Configuration for Cog ⚙️
+# Reference: https://github.com/replicate/cog/blob/main/docs/yaml.md
+
+build:
+  gpu: true
+  cuda: "11.4"
+  python_version: "3.10"
+  system_packages:
+    - "ffmpeg"
+    - "libsm6"
+    - "libxext6"
+  python_packages:
+    - "python-dotenv"
+    - "diffusers==0.25.0"
+    - "torch==2.0.1"
+    - "transformers==4.31.0"
+    - "invisible-watermark==0.2.0"
+    - "accelerate==0.21.0"
+    - "pandas==2.0.3"
+    - "torchvision==0.15.2"
+    - "numpy==1.25.1"
+    - "pandas==2.0.3"
+    - "fire==0.5.0"
+    - "opencv-python>=4.1.0.25"
+    - "mediapipe==0.10.2"
+
+predict: "predict.py:Predictor"
+
+root@c1cab004f7f6:/src# ls
+ README.md     cog.yaml           diffusers-cache  'predict copy 2.py'   predict.py   script
+ __pycache__   deploy_others.sh   echo             'predict copy.py'     print.py     test.py
+root@c1cab004f7f6:/src# ls diffusers-cache
+feature_extractor  model_index.json  safety_checker  scheduler  text_encoder  tokenizer  unet  vae
+root@c1cab004f7f6:/src# ls diffusers-cache/unet
+config.json  diffusion_pytorch_model.bin
+root@c1cab004f7f6:/src# echo '#!/usr/bin/env python
+> def print_file_content(filename):
+>     try:
+>         with open(filename, "r") as file:
+>             content = file.read()
+>             print(content)
+>     except Exception as e:
+>         print(f"Error: Unable to print the content of {filename}.")
+>         print(f"Error details: {e}")
+>
+> filename = "diffusers-cache/unet/config.json"
+> print_file_content(filename)
+> ' > print.py
+root@c1cab004f7f6:/src#
+root@c1cab004f7f6:/src# python print.py
+{
+  "_class_name": "UNet2DConditionModel",
+  "_diffusers_version": "0.25.0",
+  "_name_or_path": "/root/.cache/huggingface/hub/models--SG161222--Realistic_Vision_V1.3/snapshots/f45eef52b91794c26bfda5df698bf0823c3c1f0f/unet",
+  "act_fn": "silu",
+  "addition_embed_type": null,
+  "addition_embed_type_num_heads": 64,
+  "addition_time_embed_dim": null,
+  "attention_head_dim": 8,
+  "attention_type": "default",
+  "block_out_channels": [
+    320,
+    640,
+    1280,
+    1280
+  ],
+  "center_input_sample": false,
+  "class_embed_type": null,
+  "class_embeddings_concat": false,
+  "conv_in_kernel": 3,
+  "conv_out_kernel": 3,
+  "cross_attention_dim": 768,
+  "cross_attention_norm": null,
+  "down_block_types": [
+    "CrossAttnDownBlock2D",
+    "CrossAttnDownBlock2D",
+    "CrossAttnDownBlock2D",
+    "DownBlock2D"
+  ],
+  "downsample_padding": 1,
+  "dropout": 0.0,
+  "dual_cross_attention": false,
+  "encoder_hid_dim": null,
+  "encoder_hid_dim_type": null,
+  "flip_sin_to_cos": true,
+  "freq_shift": 0,
+  "in_channels": 4,
+  "layers_per_block": 2,
+  "mid_block_only_cross_attention": null,
+  "mid_block_scale_factor": 1,
+  "mid_block_type": "UNetMidBlock2DCrossAttn",
+  "norm_eps": 1e-05,
+  "norm_num_groups": 32,
+  "num_attention_heads": null,
+  "num_class_embeds": null,
+  "only_cross_attention": false,
+  "out_channels": 4,
+  "projection_class_embeddings_input_dim": null,
+  "resnet_out_scale_factor": 1.0,
+  "resnet_skip_time_act": false,
+  "resnet_time_scale_shift": "default",
+  "reverse_transformer_layers_per_block": null,
+  "sample_size": 64,
+  "time_cond_proj_dim": null,
+  "time_embedding_act_fn": null,
+  "time_embedding_dim": null,
+  "time_embedding_type": "positional",
+  "timestep_post_act": null,
+  "transformer_layers_per_block": 1,
+  "up_block_types": [
+    "UpBlock2D",
+    "CrossAttnUpBlock2D",
+    "CrossAttnUpBlock2D",
+    "CrossAttnUpBlock2D"
+  ],
+  "upcast_attention": false,
+  "use_linear_projection": false
+}
+
+root@c1cab004f7f6:/src# echo '#!/usr/bin/env python
+> def print_first_10_characters(filename):
+>     try:
+>         with open(filename, "r") as file:
+>             content = file.read(10)
+>             print(content)
+>     except Exception as e:
+>         print(f"Error: Unable to print the first 10 characters of {filename}.")
+>         print(f"Error details: {e}")
+>
+> filename = "diffusers-cache/unet/diffusion_pytorch_model.bin"
+> print_first_10_characters(filename)
+> ' > print.py
+root@c1cab004f7f6:/src#
+root@c1cab004f7f6:/src# python print.py
+Error: Unable to print the first 10 characters of diffusers-cache/unet/diffusion_pytorch_model.bin.
+Error details: [Errno 2] No such file or directory: 'diffusers-cache/unet/diffusion_pytorch_model.bin'
+root@c1cab004f7f6:/src# cat diffusers-cache/unet/diffusion_pytorch_model.bin
+cat: diffusers-cache/unet/diffusion_pytorch_model.bin: No such file or directory
+root@c1cab004f7f6:/src# cat diffusers-cache/unet/config.json
+{
+  "_class_name": "UNet2DConditionModel",
+  "_diffusers_version": "0.25.0",
+  "_name_or_path": "/root/.cache/huggingface/hub/models--SG161222--Realistic_Vision_V1.3/snapshots/f45eef52b91794c26bfda5df698bf0823c3c1f0f/unet",
+  "act_fn": "silu",
+  "addition_embed_type": null,
+  "addition_embed_type_num_heads": 64,
+  "addition_time_embed_dim": null,
+  "attention_head_dim": 8,
+  "attention_type": "default",
+  "block_out_channels": [
+    320,
+    640,
+    1280,
+    1280
+  ],
+  "center_input_sample": false,
+  "class_embed_type": null,
+  "class_embeddings_concat": false,
+  "conv_in_kernel": 3,
+  "conv_out_kernel": 3,
+  "cross_attention_dim": 768,
+  "cross_attention_norm": null,
+  "down_block_types": [
+    "CrossAttnDownBlock2D",
+    "CrossAttnDownBlock2D",
+    "CrossAttnDownBlock2D",
+    "DownBlock2D"
+  ],
+  "downsample_padding": 1,
+  "dropout": 0.0,
+  "dual_cross_attention": false,
+  "encoder_hid_dim": null,
+  "encoder_hid_dim_type": null,
+  "flip_sin_to_cos": true,
+  "freq_shift": 0,
+  "in_channels": 4,
+  "layers_per_block": 2,
+  "mid_block_only_cross_attention": null,
+  "mid_block_scale_factor": 1,
+  "mid_block_type": "UNetMidBlock2DCrossAttn",
+  "norm_eps": 1e-05,
+  "norm_num_groups": 32,
+  "num_attention_heads": null,
+  "num_class_embeds": null,
+  "only_cross_attention": false,
+  "out_channels": 4,
+  "projection_class_embeddings_input_dim": null,
+  "resnet_out_scale_factor": 1.0,
+  "resnet_skip_time_act": false,
+  "resnet_time_scale_shift": "default",
+  "reverse_transformer_layers_per_block": null,
+  "sample_size": 64,
+  "time_cond_proj_dim": null,
+  "time_embedding_act_fn": null,
+  "time_embedding_dim": null,
+  "time_embedding_type": "positional",
+  "timestep_post_act": null,
+  "transformer_layers_per_block": 1,
+  "up_block_types": [
+    "UpBlock2D",
+    "CrossAttnUpBlock2D",
+    "CrossAttnUpBlock2D",
+    "CrossAttnUpBlock2D"
+  ],
+  "upcast_attention": false,
+  "use_linear_projection": false
+}
+root@c1cab004f7f6:/src# cat diffusers-cache/unet/diffusion_pytorch_model.bin
+cat: diffusers-cache/unet/diffusion_pytorch_model.bin: No such file or directory
+root@c1cab004f7f6:/src# cd diffusers-cache/unet
+root@c1cab004f7f6:/src/diffusers-cache/unet# ls
+config.json  diffusion_pytorch_model.bin
+root@c1cab004f7f6:/src/diffusers-cache/unet# tree
+bash: tree: command not found
+root@c1cab004f7f6:/src/diffusers-cache/unet# sudo apt-get update
+bash: sudo: command not found
+root@c1cab004f7f6:/src/diffusers-cache/unet# sudo apt-get install tree
+bash: sudo: command not found
+root@c1cab004f7f6:/src/diffusers-cache/unet#
+root@c1cab004f7f6:/src/diffusers-cache/unet# apt-get install tree
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+E: Unable to locate package tree
+root@c1cab004f7f6:/src/diffusers-cache/unet# ls
+config.json  diffusion_pytorch_model.bin
+root@c1cab004f7f6:/src/diffusers-cache/unet# ls -l bin/diffusion_pytorch_model.bin
+ls: cannot access 'bin/diffusion_pytorch_model.bin': No such file or directory
+root@c1cab004f7f6:/src/diffusers-cache/unet# ls -l diffusion_pytorch_model.bin
+lrwxrwxrwx 1 root root 149 Jan 11 03:09 diffusion_pytorch_model.bin -> ../../../root/.cache/huggingface/hub/models--sandeshrajx--realistic-vision-v13/blobs/2a7b8fee9b54c60a71627f357325ef90ae465595a593832e485ea6c6e24f9f9c
+root@c1cab004f7f6:/src/diffusers-cache/unet# cat ../../../root/.cache/huggingface/hub/models--sandeshrajx--realistic-vision-v13/blobs/2a7b8fee9b54c60a71627f357325ef90ae465595a593832e485ea6c6e24f9f9c
+cat: ../../../root/.cache/huggingface/hub/models--sandeshrajx--realistic-vision-v13/blobs/2a7b8fee9b54c60a71627f357325ef90ae465595a593832e485ea6c6e24f9f9c: No such file or directory
+root@c1cab004f7f6:/src/diffusers-cache/unet# cat ../../../root/.cache/huggingface/hub/models--sandeshrajx--realistic-vision-v13/blobs/2a7b8fee9b54c60a71627f357325ef90ae465595a593832e485ea6c6e24f9f9c
+cat: ../../../root/.cache/huggingface/hub/models--sandeshrajx--realistic-vision-v13/blobs/2a7b8fee9b54c60a71627f357325ef90ae465595a593832e485ea6c6e24f9f9c: No such file or directory
+root@c1cab004f7f6:/src/diffusers-cache/unet# cat diffusion_pytorch_model.bin
+cat: diffusion_pytorch_model.bin: No such file or directory
+root@c1cab004f7f6:/src/diffusers-cache/unet# cd ..
+root@c1cab004f7f6:/src/diffusers-cache# ls
+feature_extractor  model_index.json  safety_checker  scheduler  text_encoder  tokenizer  unet  vae
+root@c1cab004f7f6:/src/diffusers-cache# cd text_encoder
+root@c1cab004f7f6:/src/diffusers-cache/text_encoder# ls
+config.json  pytorch_model.bin
+root@c1cab004f7f6:/src/diffusers-cache/text_encoder# ls -l pytorch_model.bin
+lrwxrwxrwx 1 root root 149 Jan 11 03:09 pytorch_model.bin -> ../../../root/.cache/huggingface/hub/models--sandeshrajx--realistic-vision-v13/blobs/bd1c652c67c414f5b7f2024b40dfe8c3f143bf27a8d5f25ee96bd55faa58e041
+root@c1cab004f7f6:/src/diffusers-cache/text_encoder# cd ..
+root@c1cab004f7f6:/src/diffusers-cache# cd ..
+root@c1cab004f7f6:/src# rm -r diffusers-cache
+root@c1cab004f7f6:/src# ls
+ README.md     cog.yaml           echo                'predict copy.py'   print.py   test.py
+ __pycache__   deploy_others.sh  'predict copy 2.py'   predict.py         script
+root@c1cab004f7f6:/src# cd ..
+root@c1cab004f7f6:/# ls
+NGC-DL-CONTAINER-LICENSE  boot  etc   lib    lib64   media  opt   root  sbin  srv  tmp  var
+bin                       dev   home  lib32  libx32  mnt    proc  run   src   sys  usr
+root@c1cab004f7f6:/# cd src
+root@c1cab004f7f6:/src# ls
+ README.md     cog.yaml           echo                'predict copy.py'   print.py   test.py
+ __pycache__   deploy_others.sh  'predict copy 2.py'   predict.py         script
+root@c1cab004f7f6:/src# ls script
+download-weights-local.py  download-weights.py
+root@c1cab004f7f6:/src# python script/download-weights.py
+The cache for model files in Transformers v4.22.0 has been updated. Migrating your old cache. This is a one-time only operation. You can interrupt this and resume the migration later on by calling `transformers.utils.move_cache()`.
+0it [00:00, ?it/s]
+config.json: 100%|█████████████████████████████████████████████████████████████████| 4.55k/4.55k [00:00<00:00, 7.42MB/s]
+`text_config_dict` is provided which will be used to initialize `CLIPTextConfig`. The value `text_config["id2label"]` will be overriden.
+`text_config_dict` is provided which will be used to initialize `CLIPTextConfig`. The value `text_config["bos_token_id"]` will be overriden.
+`text_config_dict` is provided which will be used to initialize `CLIPTextConfig`. The value `text_config["eos_token_id"]` will be overriden.
+pytorch_model.bin: 100%|███████████████████████████████████████████████████████████| 1.22G/1.22G [00:40<00:00, 30.0MB/s]
+/root/.pyenv/versions/3.10.13/lib/python3.10/site-packages/transformers/models/clip/feature_extraction_clip.py:28: FutureWarning: The class CLIPFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use CLIPImageProcessor instead.
+  warnings.warn(
+model_index.json: 100%|████████████████████████████████████████████████████████████████| 577/577 [00:00<00:00, 1.71MB/s]
+unet/diffusion_pytorch_model.safetensors not found
+unet/config.json: 100%|████████████████████████████████████████████████████████████████| 901/901 [00:00<00:00, 1.85MB/s]
+scheduler/scheduler_config.json: 100%|█████████████████████████████████████████████████| 341/341 [00:00<00:00, 1.24MB/s]
+tokenizer/special_tokens_map.json: 100%|███████████████████████████████████████████████| 472/472 [00:00<00:00, 1.89MB/s]
+text_encoder/config.json: 100%|████████████████████████████████████████████████████████| 612/612 [00:00<00:00, 2.60MB/s]
+tokenizer/tokenizer_config.json: 100%|█████████████████████████████████████████████████| 806/806 [00:00<00:00, 3.60MB/s]
+tokenizer/vocab.json: 100%|████████████████████████████████████████████████████████| 1.06M/1.06M [00:00<00:00, 50.8MB/s]vae/config.json: 100%|█████████████████████████████████████████████████████████████████| 548/548 [00:00<00:00, 1.22MB/s]tokenizer/merges.txt: 100%|███████████████████████████████████████████████████████████| 525k/525k [00:00<00:00, 893kB/s]
+diffusion_pytorch_model.bin: 100%|███████████████████████████████████████████████████| 335M/335M [00:25<00:00, 13.2MB/s]
+pytorch_model.bin: 100%|█████████████████████████████████████████████████████████████| 492M/492M [00:31<00:00, 15.8MB/s]
+diffusion_pytorch_model.bin: 100%|█████████████████████████████████████████████████| 3.44G/3.44G [03:45<00:00, 15.2MB/s]Fetching 12 files: 100%|████████████████████████████████████████████████████████████████| 12/12 [03:48<00:00, 19.01s/it]
+Loading pipeline components...:  57%|██████████████████████████████▎                      | 4/7 [00:06<00:05,  1.73s/it]You have passed a non-standard module StableDiffusionSafetyChecker(████████████████| 3.44G/3.44G [03:45<00:00, 15.3MB/s]
+  (vision_model): CLIPVisionModel(
+    (vision_model): CLIPVisionTransformer(
+      (embeddings): CLIPVisionEmbeddings(
+        (patch_embedding): Conv2d(3, 1024, kernel_size=(14, 14), stride=(14, 14), bias=False)
+        (position_embedding): Embedding(257, 1024)
+      )
+      (pre_layrnorm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+      (encoder): CLIPEncoder(
+        (layers): ModuleList(
+          (0-23): 24 x CLIPEncoderLayer(
+            (self_attn): CLIPAttention(
+              (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+            )
+            (layer_norm1): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+            (mlp): CLIPMLP(
+              (activation_fn): QuickGELUActivation()
+              (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+              (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+            )
+            (layer_norm2): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+          )
+        )
+      )
+      (post_layernorm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+    )
+  )
+  (visual_projection): Linear(in_features=1024, out_features=768, bias=False)
+). We cannot verify whether it has the correct type
+Loading pipeline components...: 100%|█████████████████████████████████████████████████████| 7/7 [00:06<00:00,  1.01it/s]
+root@c1cab004f7f6:/src# python test.py --test_text2img
+Loading pipeline...
+Loading pipeline components...:  43%|██████████████████████▋                              | 3/7 [00:00<00:01,  3.45it/s]/root/.pyenv/versions/3.10.13/lib/python3.10/site-packages/transformers/models/clip/feature_extraction_clip.py:28: FutureWarning: The class CLIPFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use CLIPImageProcessor instead.
+  warnings.warn(
+Loading pipeline components...: 100%|█████████████████████████████████████████████████████| 7/7 [00:01<00:00,  5.98it/s]
+Traceback (most recent call last):
+  File "/src/test.py", line 40, in <module>
+    p.setup()
+  File "/src/predict.py", line 84, in setup
+    ).to("cuda")
+  File "/root/.pyenv/versions/3.10.13/lib/python3.10/site-packages/diffusers/pipelines/pipeline_utils.py", line 869, in to
+    module.to(device, dtype)
+  File "/root/.pyenv/versions/3.10.13/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1145, in to
+    return self._apply(convert)
+  File "/root/.pyenv/versions/3.10.13/lib/python3.10/site-packages/torch/nn/modules/module.py", line 797, in _apply
+    module._apply(fn)
+  File "/root/.pyenv/versions/3.10.13/lib/python3.10/site-packages/torch/nn/modules/module.py", line 797, in _apply
+    module._apply(fn)
+  File "/root/.pyenv/versions/3.10.13/lib/python3.10/site-packages/torch/nn/modules/module.py", line 820, in _apply
+    param_applied = fn(param)
+  File "/root/.pyenv/versions/3.10.13/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1143, in convert
+    return t.to(device, dtype if t.is_floating_point() or t.is_complex() else None, non_blocking)
+  File "/root/.pyenv/versions/3.10.13/lib/python3.10/site-packages/torch/cuda/__init__.py", line 247, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: Found no NVIDIA driver on your system. Please check that you have an NVIDIA GPU and installed a driver from http://www.nvidia.com/Download/index.aspx
+root@c1cab004f7f6:/src# cd ..
+root@c1cab004f7f6:/# exit
+exit
+azureuser@docker-test-vm-2:~/replicate-sd-lora/sd-lora-diffusers$ sudo cog run python test.py --test_text2img
+[sudo] password for azureuser:
+Building Docker image from environment in cog.yaml...
+⚠ Cog doesn't know if CUDA 11.4 is compatible with torchvision 0.15.2. This might cause CUDA problems.
+[+] Building 3.2s (18/18) FINISHED                                                                       docker:default
+ => [internal] load build definition from Dockerfile                                                               0.0s
+ => => transferring dockerfile: 2.02kB                                                                             0.0s
+ => [internal] load .dockerignore                                                                                  0.0s
+ => => transferring context: 2B                                                                                    0.0s
+ => resolve image config for docker.io/docker/dockerfile:1.4                                                       1.7s
+ => CACHED docker-image://docker.io/docker/dockerfile:1.4@sha256:9ba7531bd80fb0a858632727cf7a112fbfd19b17e94c4e84  0.0s
+ => [internal] load metadata for docker.io/nvidia/cuda:11.4.3-cudnn8-devel-ubuntu20.04                             1.1s
+ => [stage-0  1/10] FROM docker.io/nvidia/cuda:11.4.3-cudnn8-devel-ubuntu20.04@sha256:6a25ce9a21cf6f9e37bc09022e2  0.0s
+ => [internal] load build context                                                                                  0.0s
+ => => transferring context: 84.13kB                                                                               0.0s
+ => CACHED [stage-0  2/10] RUN --mount=type=cache,target=/var/cache/apt set -eux; apt-get update -qq; apt-get ins  0.0s
+ => CACHED [stage-0  3/10] RUN --mount=type=cache,target=/var/cache/apt apt-get update -qq && apt-get install -qq  0.0s
+ => CACHED [stage-0  4/10] RUN curl -s -S -L https://raw.githubusercontent.com/pyenv/pyenv-installer/master/bin/p  0.0s
+ => CACHED [stage-0  5/10] COPY .cog/tmp/build1100593047/cog-0.0.1.dev-py3-none-any.whl /tmp/cog-0.0.1.dev-py3-no  0.0s
+ => CACHED [stage-0  6/10] RUN --mount=type=cache,target=/root/.cache/pip pip install /tmp/cog-0.0.1.dev-py3-none  0.0s
+ => CACHED [stage-0  7/10] RUN --mount=type=cache,target=/var/cache/apt apt-get update -qq && apt-get install -qq  0.0s
+ => CACHED [stage-0  8/10] COPY .cog/tmp/build1100593047/requirements.txt /tmp/requirements.txt                    0.0s
+ => CACHED [stage-0  9/10] RUN --mount=type=cache,target=/root/.cache/pip pip install -r /tmp/requirements.txt     0.0s
+ => CACHED [stage-0 10/10] WORKDIR /src                                                                            0.0s
+ => preparing layers for inline cache                                                                              0.0s
+ => exporting to image                                                                                             0.0s
+ => => exporting layers                                                                                            0.0s
+ => => writing image sha256:b7c5b2462ce57b7e78c6e99b8ca04325728cd1585b0fa516526fa55c2fa3d94c                       0.0s
+ => => naming to docker.io/library/cog-sd-lora-diffusers-base                                                      0.0s
+
+Running 'python test.py --test_text2img' in Docker with the current directory mounted as a volume...
+docker: Error response from daemon: failed to create task for container: failed to create shim task: OCI runtime create failed: runc create failed: unable to start container process: error during container init: error running hook #0: error running hook: exit status 1, stdout: , stderr: Auto-detected mode as 'legacy'
+nvidia-container-cli: initialization error: load library failed: libnvidia-ml.so.1: cannot open shared object file: no such file or directory: unknown.
+Missing device driver, re-trying without GPU
+The cache for model files in Transformers v4.22.0 has been updated. Migrating your old cache. This is a one-time only operation. You can interrupt this and resume the migration later on by calling `transformers.utils.move_cache()`.
+0it [00:00, ?it/s]
+Loading pipeline...
+Loading pipeline components...:   0%|                                                             | 0/7 [00:00<?, ?it/s]/root/.pyenv/versions/3.10.13/lib/python3.10/site-packages/transformers/models/clip/feature_extraction_clip.py:28: FutureWarning: The class CLIPFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use CLIPImageProcessor instead.
+  warnings.warn(
+Loading pipeline components...: 100%|█████████████████████████████████████████████████████| 7/7 [00:01<00:00,  6.65it/s]
+Traceback (most recent call last):
+  File "/src/test.py", line 40, in <module>
+    p.setup()
+  File "/src/predict.py", line 84, in setup
+    ).to("cuda")
+  File "/root/.pyenv/versions/3.10.13/lib/python3.10/site-packages/diffusers/pipelines/pipeline_utils.py", line 869, in to
+    module.to(device, dtype)
+  File "/root/.pyenv/versions/3.10.13/lib/python3.10/site-packages/transformers/modeling_utils.py", line 1900, in to
+    return super().to(*args, **kwargs)
+  File "/root/.pyenv/versions/3.10.13/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1145, in to
+    return self._apply(convert)
+  File "/root/.pyenv/versions/3.10.13/lib/python3.10/site-packages/torch/nn/modules/module.py", line 797, in _apply
+    module._apply(fn)
+  File "/root/.pyenv/versions/3.10.13/lib/python3.10/site-packages/torch/nn/modules/module.py", line 797, in _apply
+    module._apply(fn)
+  File "/root/.pyenv/versions/3.10.13/lib/python3.10/site-packages/torch/nn/modules/module.py", line 797, in _apply
+    module._apply(fn)
+  File "/root/.pyenv/versions/3.10.13/lib/python3.10/site-packages/torch/nn/modules/module.py", line 820, in _apply
+    param_applied = fn(param)
+  File "/root/.pyenv/versions/3.10.13/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1143, in convert
+    return t.to(device, dtype if t.is_floating_point() or t.is_complex() else None, non_blocking)
+  File "/root/.pyenv/versions/3.10.13/lib/python3.10/site-packages/torch/cuda/__init__.py", line 247, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: Found no NVIDIA driver on your system. Please check that you have an NVIDIA GPU and installed a driver from http://www.nvidia.com/Download/index.aspx
+ⅹ exit status 1
